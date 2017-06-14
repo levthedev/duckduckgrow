@@ -48,19 +48,45 @@
            display: none;
         }
       }
+
+      @-webkit-keyframes grow {
+        0%   { transform: scale(1) }
+        100% { transform: scale(10) }
+      }
+      @-moz-keyframes grow {
+        0%   { transform: scale(1) }
+        100% { transform: scale(10) }
+      }
+      @-o-keyframes grow {
+        0%   { transform: scale(1) }
+        100% { transform: scale(10) }
+      }
+      @keyframes grow {
+        0%   { transform: scale(1) }
+        100% { transform: scale(10) }
+      }
+
+      .grow {
+        -webkit-animation: grow 100s infinite;
+        -moz-animation:    grow 100s infinite;
+        -o-animation:      grow 100s infinite;
+        animation:         grow 100s infinite;
+      }
     </style>
   	<script type="text/javascript">
       document.addEventListener("DOMContentLoaded", function(event) {
         var logo = document.getElementById("logo_homepage_link");
-        logo.style.backgroundImage = "url(http://duckduckgrow.com/ddg.png)";
+        logo.style.backgroundImage = "url(http://duckduckbordeaux.com/ddg.png)";
         logo.style.backgroundSize = "120px 120px";
         logo.style.height = "150px"
 
         var form = document.getElementById("search_form_homepage");
+        var input = document.getElementById("search_form_input_homepage");
 
-        form.oninput = function() {
-          form.style.width = form.style.width + 10;
-          form.style.height = form.style.height + 10;
+        input.oninput = function() {
+          console.log('input');
+          form.style.width = form.offsetWidth + 10;
+          form.style.height = form.offsetHeight + 10;
         }
       });
     </script>
@@ -70,7 +96,7 @@
 			<div id="" class="content-wrap--home">
 			  <div id="content_homepage" class="content--home">
 				  <div class="cw--c">
-            <div class="logo-wrap--home">
+            <div class="grow logo-wrap--home">
         			<a id="logo_homepage_link" class="logo_homepage" href="https://duckduckgo.com/about">
         				About DuckDuckGrow
         				<span class="logo_homepage__tt">Duck it!</span>
@@ -78,7 +104,7 @@
               <div id="duckduckgo">DuckDuckGrow</div>
 		        </div>
 
-      			<div class="search-wrap--home">
+      			<div class="grow search-wrap--home">
       		    <form id="search_form_homepage" class="search  search--home  js-search-form" name="x" action="https://duckduckgo.com/bordeaux">
           			<input id="search_form_input_homepage" class="search__input  js-search-input" type="text" autocomplete="off" tabindex="1" value="">
           			<input id="search_button_homepage" class="search__button  js-search-button" type="submit" tabindex="2" value="S" />
@@ -88,7 +114,7 @@
       			</div>
             <div class="tag-home">
               <div class="tag-home__wrapper">
-                <div class="tag-home__item">
+                <div class="grow tag-home__item">
                   The search engine that just keeps getting bigger.
                   <span class="hide--screen-xs"><a href="https://duckduckgo.com/about" class="tag-home__link">Learn More</a>.</span>
                 </div>
@@ -100,7 +126,7 @@
       	</div>
       </div>
       <div id="footer_homepage" class="foot-home  js-foot-home"></div>
-      <div id="copyright">Dax (the DuckDuckGo mascot), the word “DuckDuckGo”, and all terrible "DuckDuckGo" puns are copyrighted by <a href="https://duckduckgo.com">DuckDuckGo</a></div>
+      <div class="grow" id="copyright">Dax (the DuckDuckGo mascot), the word “DuckDuckGo”, and all terrible "DuckDuckGo" puns are copyrighted by <a href="https://duckduckgo.com">DuckDuckGo</a></div>
     </div>
   </body>
 </html>
