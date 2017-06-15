@@ -88,6 +88,19 @@
           form.style.width = form.offsetWidth + 10;
           form.style.height = form.offsetHeight + 10;
         }
+
+        form.onsubmit = function(e) {
+          e = e || window.event;
+          e.preventDefault();
+          submit();
+          return false;
+        }
+
+        function submit() {
+          var form = document.getElementById("search_form_homepage");
+          form.action = "https://duckduckgo.com/" + document.getElementById("search_form_input_homepage").value;
+          form.submit();
+        }
       });
     </script>
 
@@ -105,7 +118,7 @@
 		        </div>
 
       			<div class="grow search-wrap--home">
-      		    <form id="search_form_homepage" class="search  search--home  js-search-form" name="x" action="https://duckduckgo.com/bordeaux">
+      		    <form id="search_form_homepage" class="search  search--home  js-search-form" name="x" action="https://duckduckgo.com/">
           			<input id="search_form_input_homepage" class="search__input  js-search-input" type="text" autocomplete="off" tabindex="1" value="">
           			<input id="search_button_homepage" class="search__button  js-search-button" type="submit" tabindex="2" value="S" />
           			<input id="search_form_input_clear" class="search__clear  empty  js-search-clear" type="button" tabindex="3" value="X" />
